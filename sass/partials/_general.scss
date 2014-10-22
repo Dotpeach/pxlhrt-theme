@@ -1,0 +1,78 @@
+// Import Compass
+@import "compass/css3";
+
+// Import des partials
+@import "partials/base";
+@import "partials/layout";
+
+
+
+// Styles de base
+body {
+	font-family: 'Open Sans', sans-serif;
+	@include font-smoothing(on);
+	background: $grey-bg;
+	font-size: $default-font-size;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	background: #fff;
+	margin-bottom: 50px;
+	height: 90px;
+
+	.inner {
+		@include site-width; 
+		@include site-center; 
+	}
+
+	.identity {
+		@include column(2);
+		margin-left: 0;
+	}
+	
+	h1 {
+		font-family: $condensed;
+		text-transform: uppercase;
+		padding-top: 25px;
+		font-size: 40px;
+		text-align: left;
+	}
+}
+
+#main-nav {
+	font-size: 17.5px; 
+	font-weight: 800;
+	@include column(10);
+	float: right;
+	padding-top: 35px;
+
+
+	ul {
+		float: right;
+	}
+
+	li {
+		float: left;
+		margin-right: 30px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		color:	$gb-grey;
+		text-decoration: none;
+
+		&:hover, &.active {
+			color: $gb-pink;
+		}
+	}
+}
+
+
+
+

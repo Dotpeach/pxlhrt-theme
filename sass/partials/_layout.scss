@@ -1,0 +1,81 @@
+// Import de la partial s'occupant de la grille
+@import "partials/grid";
+
+// Import des tiles (pour surcharge)
+@import "partials/tiles";
+
+#content {
+	@include site-width; 
+	@include site-center;
+	@include clearfix;
+}
+
+.sitewidth {
+	@include site-width; 
+	@include site-center;
+	@include clearfix;	
+}
+
+
+.tile {
+	background: #fff;
+}
+
+%small {
+	@include square(2);
+	margin-bottom: 20px;
+}
+
+%big {
+	@include square(4);
+	margin-bottom: 20px;
+}
+
+%second {
+	//margin:160px 0 0 -150px;
+	@include secondpull(2);
+		+ %small {
+			clear:both;
+		}
+}
+
+
+// Modulo permettant de cibler les tiles souhaitées via nth:child
+// --------------------------------------------------------------
+@for $i from 1 through 18 {
+	
+	// Cibler les tiles devant être plus grandes que les autres
+	// --------------------------------------------------------
+	@if ($i % 12 == 0) or ($i % 12 == 1) or ($i % 12 == 4) or ($i % 12 == 9) {
+		 .tile:nth-child(#{$i}){
+			   @extend %big;
+		 }
+	 }
+
+
+	 // Cibler les petites tiles devant se plaçant au dessus
+	 // ---------------------------------------------------------
+	@if ($i % 12 == 2) or ($i % 12 == 5) or ($i % 12 == 7) or ($i % 12 == 10) {
+		 .tile:nth-child(#{$i}){
+			@extend %small;
+		 }
+	 }
+
+
+	 // Cibler les petites tiles devant se placer sous les autres
+	 // ---------------------------------------------------------
+	@if ($i % 12 == 3) or ($i % 12 == 6) or ($i % 12 == 8) or ($i % 12 == 11) {
+		 .tile:nth-child(#{$i}){
+			@extend %small;
+			@extend %second;
+		 }
+	 }
+
+}
+
+
+
+
+
+
+

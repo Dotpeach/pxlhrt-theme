@@ -1,0 +1,62 @@
+// TYPOGRAPHIE --
+//--------------------------
+
+	// Variables pour les fonts
+	$default-font: 'Open Sans', sans-serif;
+	$condensed: 'Open Sans Condensed', sans-serif;
+	$font-arial:	Arial,Helvetica,sans-serif;
+
+
+// CHARTE GRAPHIQUE --
+//--------------------------
+
+	// Variables de couleurs
+	$grey-bg:	#e3e3e3;
+	$gb-grey:	#555351;
+	$gb-pink:	#ed196f;
+	$gb-green:	#3d8283;
+
+
+	// Niveaux de lecture
+	@import "partials/type-scaling";
+
+
+
+// DÉFINITION DE MIXIN --
+//--------------------------
+
+	// Pour une largeur de contenu à 960 
+	@mixin site-width($width:960px) {
+		max-width:$width;
+	}
+
+	// Centrer dans le navigateur 
+	@mixin site-center($margin-auto:0 auto) {
+		margin: $margin-auto;
+	}
+
+	// Faire un fond carré
+	@mixin square-bg($color:$color,$size: $size) {
+		background-color:  $color;
+		width: $size;
+		height: $size;
+	}
+	
+
+	
+
+// SNIPPETS ---
+//--------------------------
+	
+	@mixin font-smoothing ($value:on) {
+		@if $value == 'on' {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		} 
+
+		@else {
+			-webkit-font-smoothing: subpixel-antialiased;
+			-moz-osx-font-smoothing: auto;
+		}
+	}
+
