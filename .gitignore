@@ -1,0 +1,4 @@
+# Ignore Sass files
+.vendors
+.bundle
+.sass-cache
